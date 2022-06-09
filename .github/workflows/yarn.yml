@@ -23,7 +23,7 @@ jobs:
     - uses: mr-smithers-excellent/docker-build-push@v5
       name: Build & push Docker image
       with:
-        image: inyaa/inyaa-sakura-daisyui
+        image: inyaa/inyaa-sakura-tailwind
         tags: latest
         registry: docker.io
         dockerfile: Dockerfile
@@ -39,5 +39,5 @@ jobs:
         script: |
           docker stop $(docker ps -a | grep "inyaa-sakura-nuxt" | awk '{print $1}')
           docker rm -f $(docker ps -a | grep inyaa-sakura-nuxt | awk '{print $1}')
-          docker rmi $(docker images | grep inyaa-sakura-daisyui | awk '{print $3}')
-          docker run -d -p 3000:3000 --name inyaa-sakura-nuxt --network inyaa --network-alias inyaa-sakura-nuxt inyaa/inyaa-sakura-daisyui:latest
+          docker rmi $(docker images | grep inyaa-sakura-tailwind | awk '{print $3}')
+          docker run -d -p 3000:3000 --name inyaa-sakura-nuxt --network inyaa --network-alias inyaa-sakura-nuxt inyaa/inyaa-sakura-tailwind:latest
