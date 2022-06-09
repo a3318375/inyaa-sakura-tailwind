@@ -1,9 +1,5 @@
 <script setup>
 import { computed, ref } from 'vue'
-import { SearchIcon } from '@heroicons/vue/solid'
-import {
-  UsersIcon,
-} from '@heroicons/vue/outline'
 import {
   Combobox,
   ComboboxInput,
@@ -49,7 +45,7 @@ function openModal() {
       :class="[theme ? '' : 'text-base-100']"
       @click="openModal"
     >
-      <SearchIcon class="w-6 h-6" />
+      <div class="i-heroicons-solid-search w-6 h-6" />
     </button>
     <TransitionRoot :show="open" as="template" appear @after-leave="query = ''">
       <Dialog as="div" class="relative z-10" @close="open = false">
@@ -72,7 +68,7 @@ function openModal() {
                 </ComboboxOptions>
 
                 <div v-if="query !== '' && filteredPeople.length === 0" class="py-14 px-4 text-center sm:px-14">
-                  <UsersIcon class="mx-auto h-6 w-6 text-gray-400" aria-hidden="true" />
+                  <div class="i-heroicons-outline-users mx-auto h-6 w-6 text-gray-400" aria-hidden="true" />
                   <p class="mt-4 text-sm text-gray-900">
                     No people found using that search term.
                   </p>
