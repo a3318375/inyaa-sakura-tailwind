@@ -1,0 +1,37 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "lint": "eslint ."
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^0.23.0",
+    "@headlessui/vue": "^1.6.1",
+    "@heroicons/vue": "^1.0.6",
+    "@iconify-json/carbon": "^1.1.4",
+    "@iconify-json/heroicons-outline": "^1.1.1",
+    "@iconify-json/heroicons-solid": "^1.1.1",
+    "@nuxtjs/tailwindcss": "^5.1.2",
+    "@tailwindcss/forms": "^0.5.2",
+    "@tailwindcss/typography": "^0.5.2",
+    "@unocss/nuxt": "^0.33.2",
+    "autoprefixer": "^10.4.7",
+    "daisyui": "^2.6.0",
+    "eslint": "^8.15.0",
+    "nuxt": "^3.0.0-rc.3",
+    "postcss": "^8.4.14",
+    "typescript": "^4.7.2"
+  },
+  "dependencies": {
+    "dayjs": "^1.11.2",
+    "highlight.js": "^11.5.1",
+    "markdown-it": "^13.0.1",
+    "markdown-it-anchor": "^8.6.3",
+    "markdown-it-highlight-lines": "^1.0.2",
+    "markdown-it-toc-done-right": "^4.2.0",
+    "theme-change": "^2.0.2"
+  }
+}

@@ -1,0 +1,43 @@
+name: Node.js CI
+
+on:
+  push:
+    branches: [ main ]
+    paths-ignore:
+      - 'README.md'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node16
+      uses: actions/setup-node@v2
+      with:
+        node-version: '16.x'
+    - uses: c-hive/gha-yarn-cache@v2
+    - name: Install
+      run: yarn install
+    - name: Build
+      run: yarn build
+    - uses: mr-smithers-excellent/docker-build-push@v5
+      name: Build & push Docker image
+      with:
+        image: inyaa/inyaa-sakura-daisyui
+        tags: latest
+        registry: docker.io
+        dockerfile: Dockerfile
+        username: ${{ secrets.DOCKER_HUB_USERNAME }}
+        password: ${{ secrets.DOCKER_HUB_PASSWORD }}
+    - name: executing remote ssh commands using password
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        password: ${{ secrets.PASSWORD }}
+        port: ${{ secrets.PORT }}
+        script: |
+          docker stop $(docker ps -a | grep "inyaa-sakura-nuxt" | awk '{print $1}')
+          docker rm -f $(docker ps -a | grep inyaa-sakura-nuxt | awk '{print $1}')
+          docker rmi $(docker images | grep inyaa-sakura-daisyui | awk '{print $3}')
+          docker run -d -p 3000:3000 --name inyaa-sakura-nuxt --network inyaa --network-alias inyaa-sakura-nuxt inyaa/inyaa-sakura-daisyui:latest
