@@ -11,7 +11,7 @@ import {
   TransitionRoot,
 } from '@headlessui/vue'
 const { theme } = useTheme()
-
+const { show } = useScroll()
 const people = [
   { id: 1, name: 'Leslie Alexander', url: '#' },
   { id: 2, name: 'Leslie Alexander', url: '#' },
@@ -42,7 +42,7 @@ function openModal() {
     <button
       type="button"
       class="px-3 rounded-full flex items-center hover:text-gray-600 focus:outline-none"
-      :class="[theme ? '' : 'text-base-100']"
+      :class="[theme ? '' : (show ? 'text-base-100' : '')]"
       @click="openModal"
     >
       <div class="i-heroicons-solid-search w-6 h-6" />
