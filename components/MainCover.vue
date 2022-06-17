@@ -1,4 +1,5 @@
 <script setup>
+const { show } = useScroll()
 function toDwon() {
   document.getElementById('cardTop').scrollTop = 0
 }
@@ -7,7 +8,7 @@ function toDwon() {
 <template>
   <div id="myCover" class="hero min-h-screen">
     <div class="absolute bottom-9">
-      <button type="button" @click="toDwon">
+      <button type="button" :class="[show ? '' : 'hidden']" @click="toDwon">
         <div class="i-heroicons-outline-chevron-down w-6 h-6" />
       </button>
     </div>
