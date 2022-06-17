@@ -59,18 +59,19 @@ toNext(1)
 <template>
   <div>
     <div id="cardTop" />
-    <div v-for="item in blogList" class="grid card rounded-box place-items-center">
+    <div v-for="(item, index) in blogList" class="grid card rounded-box place-items-center">
       <div class="card lg:card-side bg-base-100 shadow-xl lg:max-w-4xl">
-        <figure class="lg:w-1/2">
+        <figure v-if="index % 2 === 0" class="lg:w-1/2">
           <img :src="item.cover" alt="Album">
         </figure>
-        <div class="card-body lg:w-1/2">
+        <div class="card-body lg:w-1/2 lg:float-left">
           <h2 class="card-title">
             <a :href="`/article/${item.id}`">{{ item.title }}</a>
           </h2>
           <div class="text-xs">
-            <span><div class="i-carbon-view text-sm mr-1 inline-block bg-yellow-500" />{{ item.views }} 热度</span>
-            <span class="mx-2"><div class="i-carbon-pending text-sm mr-1 inline-block bg-yellow-500" />{{ item.comments }} 条评论</span>
+            <span><div class="i-carbon-time text-sm mr-1 inline-block bg-yellow-500" />{{ nuxtApp.$dayjs(item.createTime).format('YYYY-MM-DD') }}</span>
+            <span class="mx-2"><div class="i-carbon-view text-sm mr-1 inline-block bg-yellow-500" />{{ item.views }} 热度</span>
+            <span class="mr-2"><div class="i-carbon-pending text-sm mr-1 inline-block bg-yellow-500" />{{ item.comments }} 条评论</span>
             <span><div class="i-carbon-open-panel-top text-sm mr-1 inline-block bg-yellow-500" />{{ item.typeName }}</span>
           </div>
           <p>{{ item.summary }}</p>
@@ -81,6 +82,9 @@ toNext(1)
             </div>
           </div>
         </div>
+        <figure v-if="index % 2 !== 0" class="lg:w-1/2">
+          <img :src="item.cover" alt="Album">
+        </figure>
       </div>
       <div class="divider" />
     </div>
