@@ -45,7 +45,7 @@ useHead({
 </script>
 
 <template>
-  <div class="max-w-5xl mx-auto py-16">
+  <div class="max-w-5xl mx-auto absolute pt-0 lg:static lg:py-16">
     <div class="hero bg-cover bg-center bg-no-repeat h-96" :style="`background-image: url(${imgData})`">
       <div class="hero-overlay bg-opacity-60" />
       <div class="hero-content text-center text-neutral-content">

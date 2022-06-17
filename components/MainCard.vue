@@ -60,11 +60,11 @@ toNext(1)
   <div>
     <div id="cardTop" />
     <div v-for="(item, index) in blogList" class="grid card rounded-box place-items-center">
-      <div class="card lg:card-side bg-base-100 shadow-xl lg:max-w-4xl">
-        <figure v-if="index % 2 === 0" class="lg:w-1/2">
+      <div class="card lg:card-side bg-base-100 shadow-xl lg:max-w-4xl flex">
+        <figure class="lg:w-1/2" :class="[index % 2 === 0 ? 'lg:order-2' : 'lg:order-4']">
           <img :src="item.cover" alt="Album">
         </figure>
-        <div class="card-body lg:w-1/2 lg:float-left">
+        <div class="card-body lg:w-1/2 lg:float-left" :class="[index % 2 === 0 ? 'lg:order-4' : 'lg:order-2']">
           <h2 class="card-title">
             <a :href="`/article/${item.id}`">{{ item.title }}</a>
           </h2>
@@ -82,20 +82,20 @@ toNext(1)
             </div>
           </div>
         </div>
-        <figure v-if="index % 2 !== 0" class="lg:w-1/2">
-          <img :src="item.cover" alt="Album">
-        </figure>
       </div>
       <div class="divider" />
     </div>
 
     <div class="grid place-items-center pb-8">
-      <div class="btn-group grid grid-cols-2 lg:max-w-4xl">
-        <button class="btn btn-outline bg-base-100 border-none" @click="toNext(0)">
-          Previous page
+      <div class="btn-group" @click="toNext(0)">
+        <button class="btn">
+          «
         </button>
-        <button class="btn btn-outline bg-base-100 border-none" @click="toNext(1)">
-          Next
+        <button class="btn">
+          Page {{ pageNum }}
+        </button>
+        <button class="btn" @click="toNext(1)">
+          »
         </button>
       </div>
     </div>
