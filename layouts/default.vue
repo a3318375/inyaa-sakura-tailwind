@@ -15,8 +15,10 @@ function updateWallpaper() {
 }
 
 function handleScroll() {
+  console.log(11111)
   const scrollTop = document.getElementById('pageContent').scrollTop
   const myTop = document.getElementById('pageContent').scrollHeight
+  console.log(3333, scrollTop, myTop)
   if (scrollTop > myTop / 10) {
     updateHide()
     document.getElementsByClassName('aplayer-title')[0].style.color = '#666'
@@ -160,20 +162,15 @@ function initAudio() {
 
 <template>
   <div>
-    <Html data-theme="cupcake" />
+    <Html data-theme="light" />
     <image id="mainCoverId" :class="[show ? 'fixed w-full h-full object-cover -z-999 bg-img-mobile-default md:bg-img-default bg-no-repeat bg-cover' : 'fixed filter blur w-full h-full object-cover -z-999 bg-img-mobile-default md:bg-img-default bg-no-repeat bg-cover']" @scroll="handleScroll" />
     <div id="L2dCanvas" class="Canvas hidden md:block" style="position: fixed; opacity: 1; left: -200px; bottom: -100px; pointer-events: none;" />
-    <div class="drawer">
+    <div class="drawer drawer-end">
       <input id="my-drawer-3" type="checkbox" class="drawer-toggle">
       <div id="pageContent" class="drawer-content flex flex-col" @scroll="handleScroll">
         <!-- Navbar -->
         <div class="sticky top-0 z-888">
           <div class="w-full navbar" :class="[theme ? 'bg-base-100' : (show ? 'text-white' : 'bg-white bg-opacity-80')]">
-            <div class="flex-none lg:hidden">
-              <label for="my-drawer-3" class="btn btn-square btn-ghost">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-6 h-6 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
-              </label>
-            </div>
             <div class="flex-1 px-2 mx-2">
               <a :class="[show ? 'text-25px group' : 'text-25px pb-2 group']">
                 <ruby>
@@ -214,6 +211,11 @@ function initAudio() {
                   </li>
                 </ul>
               </div>
+            </div>
+            <div class="flex-none lg:hidden">
+              <label for="my-drawer-3" class="btn btn-square btn-ghost">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-6 h-6 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /></svg>
+              </label>
             </div>
           </div>
         </div>

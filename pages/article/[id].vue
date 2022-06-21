@@ -34,12 +34,12 @@ useHead({
 </script>
 
 <template>
-  <div class="max-w-5xl mx-auto absolute pt-0 lg:static lg:py-16">
-    <div class="hero bg-cover bg-center bg-no-repeat h-96" :style="data.cover ? `background-image: url(${data.cover})` : ''">
-      <div class="hero-overlay bg-opacity-60" />
-      <div class="hero-content text-center text-neutral-content">
+  <div class="relative z-777 w-full -top-16">
+    <div class="relative hero h-96" :style="data.cover ? `background-image: url(${data.cover})` : ''">
+      <div class="relative hero-overlay bg-opacity-30" />
+      <div class="absolute items-center bottom-0 text-center text-neutral-content">
         <div>
-          <h6 class="mb-5 text-5xl font-bold">
+          <h6 class="mb-5 text-5xl">
             {{ data.title }}
           </h6>
           <p class="mb-5">
@@ -48,8 +48,22 @@ useHead({
         </div>
       </div>
     </div>
-    <div class="px-5 py-8 bg-white bg-opacity-80">
-      <article class="prose max-w-none" v-html="data.article ? nuxtApp.$markit.render(data.article.context) : '' " />
+    <div id="myPageContent" class="w-full py-6">
+      <!-- Replace with your content -->
+      <div class="md:grid md:grid-cols-24">
+        <div class="md:col-start-2 md:col-end-19 bg-base-100 bg-opacity-80">
+          <article class="prose max-w-none p-4" v-html="data.article ? nuxtApp.$markit.render(data.article.context) : '' " />
+        </div>
+        <div class="hidden md:block md:col-start-20 md:col-end-24">
+          <div class="bg-base-100 bg-opacity-80 sticky top-22">
+            <div class="py-10px px-15px">
+              文章目录
+            </div>
+            <div class="pb-15px px-15px" v-html="nuxtApp.$markit.topHtml" />
+          </div>
+        </div>
+      </div>
+    <!-- /End replace -->
     </div>
   </div>
 </template>
