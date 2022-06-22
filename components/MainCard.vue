@@ -61,8 +61,8 @@ toNext(1)
     <div id="cardTop" />
     <div v-for="(item, index) in blogList" class="grid card rounded-box place-items-center">
       <div class="card lg:card-side bg-base-100 shadow-xl lg:max-w-4xl flex">
-        <figure class="lg:w-1/2" :class="[index % 2 === 0 ? 'lg:order-2' : 'lg:order-4']">
-          <img :src="item.cover" alt="Album">
+        <figure class="lg:w-1/2 overflow-hidden" :class="[index % 2 === 0 ? 'lg:order-2' : 'lg:order-4']">
+          <img :src="item.cover" class="h-75 transform transition duration-700 hover:scale-110" alt="Album">
         </figure>
         <div class="card-body lg:w-1/2 lg:float-left" :class="[index % 2 === 0 ? 'lg:order-4' : 'lg:order-2']">
           <h2 class="card-title">

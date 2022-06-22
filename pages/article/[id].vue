@@ -62,11 +62,11 @@ useHead({
     </div>
     <div id="myPageContent" class="w-full py-6">
       <!-- Replace with your content -->
-      <div class="md:grid md:grid-cols-24">
-        <div class="md:col-start-2 md:col-end-19 bg-base-100 bg-opacity-80">
+      <div class="md:grid md:grid-cols-27">
+        <div class="md:col-start-2 md:col-end-22 bg-base-100 bg-opacity-80">
           <article class="prose max-w-none p-4" v-html="data.article ? nuxtApp.$markit.render(data.article.context) : '' " />
         </div>
-        <div class="hidden md:block md:col-start-20 md:col-end-24">
+        <div class="hidden md:block md:col-start-23 md:col-end-27">
           <div class="bg-base-100 bg-opacity-80 sticky top-22">
             <div class="py-10px px-15px">
               文章目录
@@ -74,8 +74,8 @@ useHead({
             <div class="pb-15px px-15px" v-html="nuxtApp.$markit.topHtml" />
           </div>
         </div>
+        <!-- /End replace -->
       </div>
-    <!-- /End replace -->
     </div>
   </div>
 </template>
