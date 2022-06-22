@@ -72,7 +72,7 @@ toNext(1)
             <span><div class="i-carbon-time text-sm mr-1 inline-block bg-yellow-500" />{{ nuxtApp.$dayjs(item.createTime).format('YYYY-MM-DD') }}</span>
             <span class="mx-2"><div class="i-carbon-view text-sm mr-1 inline-block bg-yellow-500" />{{ item.views }} 热度</span>
             <span class="mr-2"><div class="i-carbon-pending text-sm mr-1 inline-block bg-yellow-500" />{{ item.comments }} 条评论</span>
-            <span><div class="i-carbon-open-panel-top text-sm mr-1 inline-block bg-yellow-500" />{{ item.typeName }}</span>
+            <span><div class="i-carbon-open-panel-top text-sm mr-1 inline-block bg-yellow-500" />{{ item.type.name }}</span>
           </div>
           <p>{{ item.summary }}</p>
           <div class="card-actions justify-end">

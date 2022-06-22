@@ -164,7 +164,7 @@ function initAudio() {
   <div>
     <Html data-theme="light" />
     <image id="mainCoverId" :class="[show ? 'fixed w-full h-full object-cover -z-999 bg-img-mobile-default md:bg-img-default bg-no-repeat bg-cover' : 'fixed filter blur w-full h-full object-cover -z-999 bg-img-mobile-default md:bg-img-default bg-no-repeat bg-cover']" @scroll="handleScroll" />
-    <div id="L2dCanvas" class="Canvas hidden md:block" style="position: fixed; opacity: 1; left: -200px; bottom: -100px; pointer-events: none;" />
+    <div id="L2dCanvas" class="Canvas hidden md:block" style="position: fixed; opacity: 1; right: -200px; bottom: -100px; pointer-events: none;" />
     <div class="drawer drawer-end">
       <input id="my-drawer-3" type="checkbox" class="drawer-toggle">
       <div id="pageContent" class="drawer-content flex flex-col" @scroll="handleScroll">
